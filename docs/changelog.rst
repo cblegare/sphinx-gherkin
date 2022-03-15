@@ -53,10 +53,40 @@ The format is based on `Keep a Changelog`_, and this project will adheres to
 
 .. _release-next:
 
-0.1 - unreleased
+0.2 - unreleased
 ================
 
 .. admonition:: Downloads
 
     Stay tuned!
 
+
+
+.. _release-0.1:
+
+0.1 - 2022-03-15
+================
+
+.. admonition:: Downloads
+
+    :release:`0.1`
+
+
+Added
+-----
+
+*   Roles for cross-referencing Gherkin specification. See :ref:`roles`.
+
+*   A directive for sourcing Gherkin directives from a Gherkin feature file,
+    similar to :mod:`sphinx.ext.autodoc`. See :ref:`autofeature`.
+
+*   RestructuredText from Gherkin file generator, similar to
+    :doc:`man/sphinx-apidoc`.  See :ref:`rstgen`.
+
+*   Keyword Index. See :ref:`keywordindex`.
+
+*   Link to source code similar to :mod:`sphinx.ext.viewcode`.
+    See :ref:`viewcode`.
+
+*   Directives for authoring Gherkin specification as RestructuredText.
+    See :ref:`directives`.

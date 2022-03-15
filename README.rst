@@ -57,5 +57,4 @@ Sphinx-Gherkin
 - `Documented online <https://cblegare.gitlab.io/sphinx-gherkin/>`__
 
 .. _Sphinx: https://www.sphinx-doc.org/en/master/index.html
-.. _HashiCorp: https://www.hashicorp.com/
 .. _documentation: https://cblegare.gitlab.io/sphinx-gherkin
