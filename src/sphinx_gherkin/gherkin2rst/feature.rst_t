@@ -1,0 +1,11 @@
+{%- if show_headings %}
+{{- ["Feature:", summary] | join(' ') | e | heading }}
+
+{% endif -%}
+.. default-domain:: gherkin
+
+.. gherkin:autofeature:: {{ signature }}
+{%- for option in autofeature_options %}
+   :{{ option }}:
+{%- endfor %}
+

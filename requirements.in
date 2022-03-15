@@ -1,0 +1,5 @@
+sphinx >= 3
+docutils
+gherkin-official
+typing_extensions;python_version < "3.8"
+importlib_metadata;python_version < "3.8"

@@ -1,0 +1,11 @@
+include README.rst
+include LICENSE
+include CHANGESLOG.rst
+include CONTRIBUTING.rst
+include requirements.in
+
+include src/sphinx_gherkin/py.typed
+
+recursive-include src/sphinx_gherkin/gherkin2rst *.rst_t
+recursive-include src/sphinx_gherkin/i18n *.pot *.po *.mo
+recursive-include tests *

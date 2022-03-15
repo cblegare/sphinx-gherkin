@@ -1,0 +1,71 @@
+{#
+    Render a page for a Gherkin feature folder.
+
+    Features contained (non-recursively) in a folder can be rendered in
+    the same page or in separate pages.  This behavior is controlled by
+    the ``separatefeatures`` context value.
+
+    This template requires the following context:
+
+    show_headings:
+        Whether or not to render a heading on top of a feature.
+    foldername:
+        Used to construct a header.
+    separatefeatures:
+        A boolean indicating whether we want one feature per page or
+        one folder of feature per page.
+    subfolders:
+        Docnames of sub folders that are added in a toctree.
+    features:
+        List of :class:`sphinx_gherkin.gherkin.Gherkin` objects.  With
+        these objects, when ``separatefeatures`` is True, we expect the
+        individual rendered feature documentation files to have
+        ``feature.name`` as a docname.
+    autofeature_options:
+        Dictionary of options to the :rst:dir:`autofeature` directive.
+    maxdepth:
+        Maximum toctree depth.
+#}
+{%- macro autofeature(feature_path, options) -%}
+.. gherkin:autofeature:: {{ feature_path }}
+{%- for option in options %}
+   :{{ option }}:
+{%- endfor %}
+{%- endmacro %}
+{%- macro toctree(docnames) -%}
+.. toctree::
+   :maxdepth: {{ maxdepth }}
+{% for docname in docnames %}
+   {{ docname }}
+{%- endfor %}
+{%- endmacro %}
+
+
+{{- [foldername, "folder"] | join(" ") | e | heading }}
+
+.. default-domain:: gherkin
+
+{%- if subfolders %}
+
+Subfolders
+----------
+
+{{ toctree(subfolders) }}
+{% endif %}
+
+
+{%- if features %}
+
+Features
+--------
+{% if separatefeatures %}
+{{ toctree(features|map(attribute='name')) }}
+{% else %}
+{%- for feature_path, feature in features.items() %}
+{% if show_headings %}
+{{- ["Feature:", feature.feature.summary] | join(' ') | e | heading(3) }}
+{% endif %}
+{{ autofeature(feature_path, autofeature_options) }}
+{% endfor %}
+{%- endif %}
+{%- endif %}
