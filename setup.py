@@ -74,7 +74,9 @@ if __name__ == "__main__":
         install_requires=requirements_in.read_text().splitlines(),
         extras_require=extras_require,
         entry_points={
-            'console_scripts': ['sphinx-gherkin=sphinx_gherkin.gherkin2rst:main'],
+            "console_scripts": [
+                "sphinx-gherkin=sphinx_gherkin.gherkin2rst:main"
+            ],
         },
         include_package_data=True,
     )
